@@ -4,7 +4,7 @@ from .models import UserProfile
 
 
 class UserRegisterSerializer(serializers.ModelSerializer):
-    password=serializers.CharField(write_only=True,style={"input_type":"password"})
+    password=serializers.CharField(write_only=True,min_length=5, style={"input_type":"password"})
     location = serializers.CharField(required=False,write_only=True)
     birth_date=serializers.DateField(required=True,write_only=True)
 
