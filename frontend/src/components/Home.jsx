@@ -1,5 +1,6 @@
 import React from 'react'
 import '../assets/css/style.css'
+import Button from './Button'
 const Home = () => {
   return (
     <>
@@ -12,7 +13,7 @@ const Home = () => {
                Stock Portal provides real-time insights, intuitive visualizations, and personalized 
                recommendations to guide your trading strategy. Empower your financial journey with 
                data-driven predictions and stay ahead in the stock market.</p>
-               <a className='btn btn-outline-info me-3' href="#">Login</a>
+               <Button text='Explore Now' class='btn-info' url='/Dashboard'/>
         </div>
       </div>
     </>

@@ -8,9 +8,18 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from django.contrib.auth.models import User
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 
 class UserRegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [AllowAny]
     serializer_class = UserRegisterSerializer
+
+class ProtectedView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        content = {'status' : 'Request was permitted'}
+        return Response(content)
